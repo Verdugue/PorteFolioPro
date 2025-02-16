@@ -1,0 +1,460 @@
+/* Variables globales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* Structure de base pour le footer fixe */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #dee2e6, #ced4da);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: var(--text-color);
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Style des cartes */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des boutons */
+.btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    font-weight: 500;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::after {
+    width: 300%;
+    height: 300%;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Barre de navigation */
+.navbar {
+    background: rgba(44, 62, 80, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: all var(--transition-speed) ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cartes d'administration */
+.admin-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.admin-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.admin-card .card-title i {
+    font-size: 1.5rem;
+    transition: transform var(--transition-speed) ease;
+}
+
+.admin-card:hover .card-title i {
+    transform: scale(1.2);
+}
+
+/* Couleurs des icônes avec effet de gradient */
+.admin-card .fa-project-diagram { background: linear-gradient(45deg, #4e73df, #224abe); }
+.admin-card .fa-tools { background: linear-gradient(45deg, #1cc88a, #13855c); }
+.admin-card .fa-comments { background: linear-gradient(45deg, #f6c23e, #dda20a); }
+.admin-card .fa-folder { background: linear-gradient(45deg, #e74a3b, #be2617); }
+.admin-card .fa-tags { background: linear-gradient(45deg, #36b9cc, #258391); }
+.admin-card .fa-chart-bar { background: linear-gradient(45deg, #6f42c1, #4e2c8d); }
+
+.admin-card .card-title i {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Style des formulaires */
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Alertes */
+.alert {
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+}
+
+.alert-success {
+    border-left: 4px solid #2ecc71;
+}
+
+.alert-danger {
+    border-left: 4px solid #e74c3c;
+}
+
+/* Animation de chargement */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.footer .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Custom styles for authentication system */
+body {
+    background-color: #f8f9fa;
+}
+
+.auth-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+}
+
+.auth-card .card-body {
+    padding: 2rem;
+}
+
+.auth-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.form-control:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+.auth-links {
+    margin-top: 1rem;
+}
+
+.auth-links a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    color: #2e59d9;
+    text-decoration: underline;
+}
+
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+.alert-success {
+    background-color: #e3fcef;
+    color: #1c7430;
+}
+
+.alert-danger {
+    background-color: #fee;
+    color: #dc3545;
+}
+
+.form-check-input:checked {
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Styles pour le panneau d'administration */
+.admin-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-card .card-title {
+    color: #2c3e50;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-card .card-title i {
+    font-size: 1.25rem;
+}
+
+/* Couleurs des icônes */
+.admin-card .fa-project-diagram { color: #4e73df; }
+.admin-card .fa-tools { color: #1cc88a; }
+.admin-card .fa-comments { color: #f6c23e; }
+.admin-card .fa-folder { color: #e74a3b; }
+.admin-card .fa-tags { color: #36b9cc; }
+.admin-card .fa-chart-bar { color: #6f42c1; }
+
+.admin-card .card-text {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.admin-card .btn-primary {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+/* Style pour la barre de navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link i {
+    font-size: 1.1rem;
+}
+
+/* Style pour les titres de page */
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #4e73df;
+    border-radius: 3px;
+}
+
+/* Gestion des modales */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1040;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.modal.show {
+    display: flex !important;
+}
+
+.modal-dialog {
+    margin: 0;
+    width: 100%;
+    max-width: 500px;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+body.modal-open {
+    overflow: hidden;
+    padding-right: 0 !important;
+} 
