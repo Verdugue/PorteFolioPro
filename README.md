@@ -136,3 +136,4 @@ Ce projet est sous licence MIT.
 
 ## Contact
 Une question ou un bug ? contactez moi sur mon email :  eliott.pro2004@gmail.com
+Eliott Bellais
